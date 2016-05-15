@@ -1,0 +1,20 @@
+{
+  "name": "vue_learning",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Saber0517 <zzbond0517@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "homepage": "module/index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

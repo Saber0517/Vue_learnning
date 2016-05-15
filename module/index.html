@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue_learning</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.min.js"></script>
+    <!--<script type="text/javascript" src="../bower_components/vue/dist/vue.js"></script>-->
+</head>
+<body>
+<div id="app">
+    <form name="bookForm" id="bookForm" v-on:submit.prevent="onSubmit" role="form">
+        <input type="text" v-model="newBook.newBookName"><br/>
+        <input type="text" v-model="newBook.newBookAuthor"><br/>
+        <button type="submit">Add new book</button>
+    </form>
+    <ul>
+        <li v-for="item in bookSheet" track-by="$index">{{item.bookName}} --- {{item.bookAuthor}}
+            <button v-on:click="onDelete(item)">Remove</button>
+        </li>
+    </ul>
+</div>
+
+<script>
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            newBook: {
+                newBookName: '',
+                newBookAuthor: ''
+            },
+            bookSheet: []
+        },
+        methods: {
+            onSubmit: function () {
+                var newBook = {
+                    bookName: this.newBook.newBookName,
+                    bookAuthor: this.newBook.newBookAuthor
+                };
+                console.log(this.bookSheet.push(newBook));
+            },
+            onDelete: function (data) {
+                console.log(this.bookSheet.$remove(data));
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
