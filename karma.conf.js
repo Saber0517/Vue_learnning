@@ -2,9 +2,12 @@
 module.exports = function(config) {
   config.set({
     frameworks: ['jasmine'],
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
+    exclude: ['karma.conf.js'],
+    port: 9876,
+    colors: true,
     files: [
-      './module/test/**/*.js'
+      'module/test/**/*.js'
     ]
   })
 }
