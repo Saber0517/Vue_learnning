@@ -6,7 +6,7 @@ describe("A suite", function() {
   });
 
   it("require index.html testing", function () {
-    var formPage = require('../../client/index.html');
+    var formPage = require('.././index.html');
 
     expect(formPage).not.toBe(null);
     expect(formPage).not.toBe(1);

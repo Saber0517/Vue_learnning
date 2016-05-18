@@ -18,6 +18,8 @@
     "tests"
   ],
   "devDependencies": {
-    "vue": "^1.0.24"
+    "vue": "^1.0.24",
+    "bootstrap": "^3.3.6",
+    "vue-resource": "^0.7.0"
   }
 }
