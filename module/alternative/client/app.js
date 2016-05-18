@@ -1,3 +1,10 @@
-/**
- * Created by ZHANGJA4 on 5/18/2016.
- */
+'use strict'
+
+new Vue({
+    el: '#event',
+    data:{},
+    ready:function () {
+        
+    },
+    methods:{}
+});
