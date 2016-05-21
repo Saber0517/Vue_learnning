@@ -9,9 +9,12 @@
 <body>
 <div id="app">
     <!-- we will mount our VueJs instance to this div -->
-    <greeting></greeting>
-    <greeting></greeting>
-    <greeting></greeting>
+    <template id="greeting-template">
+        <h1>Welcome to coligo</h1>
+        <button>login</button>
+        <button>signup</button>
+        <a href="http://coligo.io">Check out</a>
+    </template>
 </div>
 
 <!-- include VueJs in our page via a CDN -->
@@ -19,7 +22,7 @@
 <script>
     // create a new Vue instance and mount it to our div element above with the id of app
     Vue.component('greeting', {
-        template: '<h1>Welcome to coligo!</h1>'
+        template: '#greet-template'
     });
 
     var vm = new Vue({
