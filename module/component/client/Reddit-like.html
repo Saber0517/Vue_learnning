@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit</title>
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<template id="post-template">
+    <li class="list-group-item">
+        <!-- if upvoted === true, add disabled class -->
+        <i class="glyphicon glyphicon-chevron-up" @click="upvote" :class="{disabled: upvoted}"></i>
+        <span class="label label-primary">{{ votes }}</span>
+        <!-- if the downvoted === true, add disabled class -->
+        <i class="glyphicon glyphicon-chevron-down" @click="downvote" :class="{disabled: downvoted}"></i>
+        <a>{{ post.title }}</a>
+    </li>
+</template>
+
+
+<div id="app">
+    <div class="container-fluid">
+        <ul class="list-group">
+            <post v-for="post in posts" :post="post"></post>
+        </ul>
+        <div id="comment-box">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Enter a comment..." v-model="comment"
+                       @keyup.enter="postComment">
+             <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" @click="postComment">Sumbit</button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<script src="../../../bower_components/jquery/dist/jquery.js"></script>
+<script src="../../../bower_components/vue/dist/vue.js"></script>
+<script src="../../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="voter.js"></script>
+</body>
+</html>
