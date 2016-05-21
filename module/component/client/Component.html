@@ -9,12 +9,27 @@
 <body>
 <div id="app">
     <!-- we will mount our VueJs instance to this div -->
+
+
     <template id="greeting-template">
         <h1>Welcome to coligo</h1>
         <button>login</button>
         <button>signup</button>
         <a href="http://coligo.io">Check out</a>
     </template>
+
+    <greeting :message="message"></greeting>
+
+    <template id="post-template">
+        <h1>{{ title }}</h1>
+        <h4>{{ author }}</h4>
+        <p>{{ content }}</p>
+    </template>
+
+    <post :title="title" :author="author" :content="content"></post>
+
+    <hi></hi>
+
 </div>
 
 <!-- include VueJs in our page via a CDN -->
@@ -22,11 +37,27 @@
 <script>
     // create a new Vue instance and mount it to our div element above with the id of app
     Vue.component('greeting', {
-        template: '#greet-template'
+        template: '#greeting-template',
+        props:['message']
+    });
+
+    Vue.component('post', {
+        template: '#post-template',
+        props: ['title', 'author', 'content']
+    });
+
+    Vue.component('hi', {
+        template: '<h1>Like you expect!</h1>',
     });
 
     var vm = new Vue({
-        el: '#app'
+        el: '#app',
+        data: {
+            author: 'Johnnie Walker',
+            title: 'Aging Your Own Whisky',
+            content: 'A bunch of steps and a whole lot of content',
+            message:'Can you see me?'
+        }
     });
 
 
